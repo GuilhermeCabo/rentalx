@@ -1,0 +1,246 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "The Project Documentation",
+    "description": "This is an API rant",
+    "version": "1.0.0",
+    "contact": {
+      "email": "guilherme.pcabo@gmail.com"
+    }
+  },
+  "paths": {
+    "/categories": {
+      "post": {
+        "tags": ["Category"],
+        "summary": "Create a category",
+        "description": "Create a new category",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "description": {
+                    "type": "string"
+                  }
+                },
+                "example": {
+                  "name": "name example",
+                  "description": "description example"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "name": {
+                      "type": "string",
+                      "example": "name example"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "description example"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "This category already exists"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Category"],
+        "summary": "List categories",
+        "description": "List all categories",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "example": "42601cd5-6d3f-471e-a23e-d7da4e297cf7"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "name example"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "description example"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2022-01-18T01:03:38.977Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+
+    "/specifications": {
+      "post": {
+        "tags": ["Specification"],
+        "summary": "Create a specification",
+        "description": "Create a new specification",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string",
+                    "example": "name example"
+                  },
+                  "description": {
+                    "type": "string",
+                    "example": "description example"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "format": "uuid",
+                      "example": "42601cd5-6d3f-471e-a23e-d7da4e297cf7"
+                    },
+                    "name": {
+                      "type": "string",
+                      "example": "name example"
+                    },
+                    "description": {
+                      "type": "string",
+                      "example": "description example"
+                    },
+                    "created_at": {
+                      "type": "string",
+                      "format": "date-time",
+                      "example": "2022-01-18T01:03:38.977Z"
+                    }
+                  }
+                },
+                "example": {
+                  "id": "42601cd5-6d3f-471e-a23e-d7da4e297cf7",
+                  "name": "name example",
+                  "description": "description example",
+                  "created_at": "2022-01-18T01:03:38.977Z"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "Unprocessable Entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "message": {
+                      "type": "string",
+                      "example": "string"
+                    }
+                  }
+                },
+                "example": {
+                  "message": "This specification already exists"
+                }
+              }
+            }
+          }
+        }
+      },
+      "get": {
+        "tags": ["Specification"],
+        "summary": "List specifications",
+        "description": "List all specifications",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string",
+                        "format": "uuid",
+                        "example": "42601cd5-6d3f-471e-a23e-d7da4e297cf7"
+                      },
+                      "name": {
+                        "type": "string",
+                        "example": "name example"
+                      },
+                      "description": {
+                        "type": "string",
+                        "example": "description example"
+                      },
+                      "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2022-01-18T01:03:38.977Z"
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
